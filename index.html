@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زاد المسلم - أكبر منظومة إسلامية شاملة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- النافبار العلوية -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🕌 زاد المسلم</h1>
+                <p>منظومة إسلامية شاملة</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة الجانبية -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <h3>الأقسام الرئيسية</h3>
+            <ul class="categories-list">
+                <li><a href="#" onclick="filterByCategory('all')">كل الأقسام</a></li>
+                <li><a href="#" onclick="filterByCategory('quran')">📖 القرآن الكريم</a></li>
+                <li><a href="#" onclick="filterByCategory('hadith')">📚 الحديث الشريف</a></li>
+                <li><a href="#" onclick="filterByCategory('fiqh')">⚖️ الفقه الإسلامي</a></li>
+                <li><a href="#" onclick="filterByCategory('aqeedah')">✨ العقيدة</a></li>
+                <li><a href="#" onclick="filterByCategory('akhlaq')">💎 الأخلاق والآداب</a></li>
+                <li><a href="#" onclick="filterByCategory('family')">👨‍👩‍👧‍👦 الأسرة المسلمة</a></li>
+                <li><a href="#" onclick="filterByCategory('children')">👶 أقسام الأطفال</a></li>
+                <li><a href="#" onclick="filterByCategory('women')">👩 المرأة المسلمة</a></li>
+                <li><a href="#" onclick="filterByCategory('youth')">👨 الشباب المسلم</a></li>
+                <li><a href="#" onclick="filterByCategory('stories')">🎭 القصص الإسلامية</a></li>
+                <li><a href="#" onclick="filterByCategory('adkaar')">🤲 الأذكار والأدعية</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- البحث والفلترة -->
+        <div class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="ابحث عن موضوع إسلامي..." 
+                    onkeyup="handleSearch()"
+                >
+                <button onclick="handleSearch()" class="search-btn">🔍 بحث</button>
+            </div>
+            
+            <div class="filters">
+                <select id="sortBy" onchange="handleSort()">
+                    <option value="popular">الأكثر شهرة</option>
+                    <option value="recent">الأحدث</option>
+                    <option value="name">الترتيب الأبجدي</option>
+                </select>
+                <button onclick="resetFilters()" class="reset-btn">إعادة تعيين</button>
+            </div>
+        </div>
+
+        <!-- الإحصائيات -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number" id="totalSections">0</span>
+                <span class="stat-label">إجمالي المواضيع</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="totalCategories">0</span>
+                <span class="stat-label">الأقسام الرئيسية</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="totalStories">0</span>
+                <span class="stat-label">القصص والمواقف</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="totalEducational">0</span>
+                <span class="stat-label">محتوى تعليمي</span>
+            </div>
+        </div>
+
+        <!-- شبكة الأقسام -->
+        <div class="sections-grid" id="sectionsGrid">
+            <!-- سيتم ملؤها بواسطة JavaScript -->
+        </div>
+
+        <!-- الترقيم -->
+        <div class="pagination">
+            <button onclick="previousPage()" class="pagination-btn">← السابق</button>
+            <div class="page-info">
+                <span id="pageNumber">1</span> / <span id="totalPages">1</span>
+            </div>
+            <button onclick="nextPage()" class="pagination-btn">التالي →</button>
+        </div>
+    </main>
+
+    <!-- مودال التفاصيل -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
