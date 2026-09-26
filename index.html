@@ -1,114 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زاد المسلم - أكبر منظومة إسلامية شاملة</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="زاد المسلم: موسوعة إسلامية عربية للقرآن والأذكار والقصص والتعليم والأسرة والأطفال.">
+  <meta name="theme-color" content="#0d5c48">
+  <title>زاد المسلم | موسوعة إسلامية شاملة</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- النافبار العلوية -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <h1>🕌 زاد المسلم</h1>
-                <p>منظومة إسلامية شاملة</p>
-            </div>
-            <div class="nav-buttons">
-                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- القائمة الجانبية -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-content">
-            <h3>الأقسام الرئيسية</h3>
-            <ul class="categories-list">
-                <li><a href="#" onclick="filterByCategory('all')">كل الأقسام</a></li>
-                <li><a href="#" onclick="filterByCategory('quran')">📖 القرآن الكريم</a></li>
-                <li><a href="#" onclick="filterByCategory('hadith')">📚 الحديث الشريف</a></li>
-                <li><a href="#" onclick="filterByCategory('fiqh')">⚖️ الفقه الإسلامي</a></li>
-                <li><a href="#" onclick="filterByCategory('aqeedah')">✨ العقيدة</a></li>
-                <li><a href="#" onclick="filterByCategory('akhlaq')">💎 الأخلاق والآداب</a></li>
-                <li><a href="#" onclick="filterByCategory('family')">👨‍👩‍👧‍👦 الأسرة المسلمة</a></li>
-                <li><a href="#" onclick="filterByCategory('children')">👶 أقسام الأطفال</a></li>
-                <li><a href="#" onclick="filterByCategory('women')">👩 المرأة المسلمة</a></li>
-                <li><a href="#" onclick="filterByCategory('youth')">👨 الشباب المسلم</a></li>
-                <li><a href="#" onclick="filterByCategory('stories')">🎭 القصص الإسلامية</a></li>
-                <li><a href="#" onclick="filterByCategory('adkaar')">🤲 الأذكار والأدعية</a></li>
-            </ul>
-        </div>
-    </aside>
-
-    <!-- المحتوى الرئيسي -->
-    <main class="main-content">
-        <!-- البحث والفلترة -->
-        <div class="search-section">
-            <div class="search-container">
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    placeholder="ابحث عن موضوع إسلامي..." 
-                    onkeyup="handleSearch()"
-                >
-                <button onclick="handleSearch()" class="search-btn">🔍 بحث</button>
-            </div>
-            
-            <div class="filters">
-                <select id="sortBy" onchange="handleSort()">
-                    <option value="popular">الأكثر شهرة</option>
-                    <option value="recent">الأحدث</option>
-                    <option value="name">الترتيب الأبجدي</option>
-                </select>
-                <button onclick="resetFilters()" class="reset-btn">إعادة تعيين</button>
-            </div>
-        </div>
-
-        <!-- الإحصائيات -->
-        <div class="stats-container">
-            <div class="stat-card">
-                <span class="stat-number" id="totalSections">0</span>
-                <span class="stat-label">إجمالي المواضيع</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="totalCategories">0</span>
-                <span class="stat-label">الأقسام الرئيسية</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="totalStories">0</span>
-                <span class="stat-label">القصص والمواقف</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" id="totalEducational">0</span>
-                <span class="stat-label">محتوى تعليمي</span>
-            </div>
-        </div>
-
-        <!-- شبكة الأقسام -->
-        <div class="sections-grid" id="sectionsGrid">
-            <!-- سيتم ملؤها بواسطة JavaScript -->
-        </div>
-
-        <!-- الترقيم -->
-        <div class="pagination">
-            <button onclick="previousPage()" class="pagination-btn">← السابق</button>
-            <div class="page-info">
-                <span id="pageNumber">1</span> / <span id="totalPages">1</span>
-            </div>
-            <button onclick="nextPage()" class="pagination-btn">التالي →</button>
-        </div>
-    </main>
-
-    <!-- مودال التفاصيل -->
-    <div id="detailsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="#top" aria-label="العودة للرئيسية"><span>🕌</span><span><strong>زاد المسلم</strong><small>علمٌ نافع وعملٌ صالح</small></span></a>
+      <nav class="desktop-nav" aria-label="التنقل الرئيسي"><a href="#top">الرئيسية</a><a href="#sections">الأقسام</a><a href="#daily">زاد اليوم</a><a href="#about">عن المنظومة</a></nav>
+      <div class="nav-buttons"><button class="icon-btn" id="themeButton" type="button" aria-label="تبديل الوضع">🌙</button><button class="icon-btn" id="menuButton" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button></div>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="قائمة الهاتف"><a href="#top">الرئيسية</a><a href="#sections">الأقسام</a><a href="#daily">زاد اليوم</a><a href="#about">عن المنظومة</a></nav>
+  </header>
 
-    <script src="script.js"></script>
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy"><span class="eyebrow">موسوعتك الإسلامية اليومية</span><h1>خذ من الخير <span>زادًا</span> لحياتك</h1><p>تصفح محتوى إسلاميًا منظمًا للعائلة والأطفال والشباب، وابحث عن العلم النافع بسهولة.</p><div class="hero-actions"><a class="primary-btn" href="#sections">استكشف الأقسام <span>←</span></a><button class="secondary-btn" id="installButton" type="button" hidden>📱 تثبيت على الهاتف</button></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="moon">☾</div><div class="mosque">🕌</div><div class="stars">✦　·　✧　·　✦</div></div>
+    </section>
+
+    <section class="container daily-grid" id="daily">
+      <article class="daily-card featured"><span class="card-label">✦ زاد اليوم</span><h2 id="dailyTitle">إن مع العسر يسرا</h2><p id="dailyText">فإن مع العسر يسرا، إن مع العسر يسرا.</p><small id="dailySource">سورة الشرح: 5–6</small><button class="text-btn" id="newDaily" type="button">زاد آخر ↻</button></article>
+      <article class="welcome-card"><span class="round-icon">🤲</span><h2>ابدأ بخطوة</h2><p>احفظ ما ينفعك، وشارك الخير، واجعل لك وردًا يوميًا.</p><button class="outline-btn" id="favoritesButton" type="button">المفضلة <span id="favoriteCount">0</span></button></article>
+    </section>
+
+    <section class="container" id="sections">
+      <div class="section-heading"><div><span class="eyebrow">كل ما تحتاجه في مكان واحد</span><h2>أقسام المنظومة</h2></div><span class="result-count" id="resultCount"></span></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن قسم أو موضوع..." autocomplete="off"></label><select id="sortBy" aria-label="ترتيب الأقسام"><option value="popular">الأكثر شهرة</option><option value="recent">الأحدث</option><option value="name">أبجديًا</option></select><button class="outline-btn" id="resetButton" type="button">إعادة ضبط</button></div>
+      <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="تصنيف الأقسام"></div>
+      <div class="sections-grid" id="sectionsGrid" aria-live="polite"></div>
+      <div class="pagination"><button class="pagination-btn" id="previousButton" type="button">السابق</button><span id="pageInfo"></span><button class="pagination-btn" id="nextButton" type="button">التالي</button></div>
+    </section>
+
+    <section class="container about" id="about"><div class="about-icon">🌿</div><div><span class="eyebrow">رسالتنا</span><h2>علمٌ موثوق، عرضٌ بسيط، وأثرٌ طيب</h2><p>هذه نسخة الويب الأولى من زاد المسلم، مصممة لتعمل بسرعة على الهاتف والكمبيوتر. عند إضافة النصوص الشرعية ستُرفق بالمصدر والمرجع، ولن يُنسب حديث أو دعاء بلا توثيق.</p></div></section>
+  </main>
+  <footer><div class="container footer-inner"><strong>🕌 زاد المسلم</strong><span>اللهم انفعنا بما علمتنا وعلمنا ما ينفعنا</span><small>© 2026 — مشروع معرفي مفتوح للتطوير</small></div></footer>
+
+  <div class="modal" id="detailsModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-content"><button class="close" id="closeModal" type="button" aria-label="إغلاق">×</button><div id="modalBody"></div></div></div>
+  <script src="script.js"></script>
 </body>
 </html>
